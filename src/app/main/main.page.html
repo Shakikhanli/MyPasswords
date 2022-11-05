@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      My Passwords
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-list>
+    <ion-item *ngFor="let password of passwords; let i = index" >
+
+      <ion-grid>
+
+        <ion-row class="item_line">
+
+          <ion-label style="padding-top: 7px;">
+            {{  password.name }}
+          </ion-label>
+
+          <!-- <ion-button class="caret-down-outline" size="small" (click)="showPassword(i); selectedItem = i" >
+            <ion-icon name="caret-down-outline" *ngIf="!test && selectedItem === i"></ion-icon>
+            <ion-icon name="caret-up-outline" *ngIf="!isPasswordHidden && selectedItem === i"></ion-icon>
+          </ion-button> -->
+
+          <ion-button class="caret-down-outline" size="small" (click)="showPassword(i); selectedItem = i" >
+            <ion-icon name="caret-down-outline"></ion-icon>
+          </ion-button>
+
+          <!-- <ion-icon
+            name="arrow-dropup"
+            *ngIf = "menuCollpased"></ion-icon>
+
+          <ion-icon
+            name="arrow-dropdown"
+            *ngIf = "!menuCollpased"></ion-icon> -->
+
+        </ion-row>
+
+        <ion-row id="#myElement">
+          <ion-item  style="padding-top: 10px;" *ngIf="selectedItem === i" [hidden]="isPasswordHidden">
+            {{  password.password }}
+            {{ selectedItem | json}}
+          </ion-item>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-item>
+  </ion-list>
+
+
+<ion-button class="bottom_button" href="new-password">
+  Add new password
+</ion-button>
+
+
+</ion-content>
